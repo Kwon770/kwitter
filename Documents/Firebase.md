@@ -37,3 +37,22 @@ You can change this setting as "session" or "none"
 await authService.createUserWithEmailAndPassword(email, password); // :Promise
 await authService.signInWithEmailAndPassword(email, password); // :Promise
 ```
+
+## Listener for initializing user state
+
+```onAuthStateChanged()``` is triggered whenever user state is changed.
+
+e.g. On log in, On log out, On Firebase initialize.
+
+```js
+useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    });
+  }, []);
+```
