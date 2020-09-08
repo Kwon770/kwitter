@@ -24,3 +24,16 @@ var firebaseConfig = {
 
 export default firebase.initializeApp(firebaseConfig);
 ```
+
+## Sign up and Log in
+
+Default setting of log in is Local. So if you log in once, browser save this data in local.
+
+You can change this setting as "session" or "none"
+
+### local account (email)
+
+```js
+await authService.createUserWithEmailAndPassword(email, password); // :Promise
+await authService.signInWithEmailAndPassword(email, password); // :Promise
+```
