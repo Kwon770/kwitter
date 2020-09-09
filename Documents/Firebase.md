@@ -31,11 +31,23 @@ Default setting of log in is Local. So if you log in once, browser save this dat
 
 You can change this setting as "session" or "none"
 
-### local account (email)
+### Local account (email)
 
 ```js
 await authService.createUserWithEmailAndPassword(email, password); // :Promise
 await authService.signInWithEmailAndPassword(email, password); // :Promise
+```
+
+### Social account
+
+```js
+if (name === "google") {
+  provider = new firebaseInstance.auth.GoogleAuthProvider();
+} else if (name === "github") {
+  provider = new firebaseInstance.auth.GithubAuthProvider();
+}
+
+await authService.signInWithPopup(provider);
 ```
 
 ## Listener for initializing user state
