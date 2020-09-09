@@ -1,5 +1,7 @@
 # Firebase from web project
 
+__You must use ```await``` with all method what return Promise__
+
 ## Create project and Generate app
 
 It will give you _Firebase SDK_
@@ -68,3 +70,25 @@ useEffect(() => {
     });
   }, []);
 ```
+
+## Add collection to Firestore (Firebase NoSql DB)
+
+Firestore is consist of collection and document.
+
+```
+Collection - - Document - content
+           L - Document - content
+           L - Document - content
+
+Collection - - Document - content
+           L - Document - content
+```
+
+ ```js
+ await dbService.collection("kweets").add({
+      kweet,
+      createdAt: Date.now(),
+    });
+ ```
+
+![collection](./collection.jpg)
