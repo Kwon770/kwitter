@@ -1,6 +1,6 @@
 # Firebase from web project
 
-__You must use ```await``` with all method what return Promise__
+**You must use `await` with all method what return Promise**
 
 ## Create project and Generate app
 
@@ -28,6 +28,7 @@ var firebaseConfig = {
 
 export default firebase.initializeApp(firebaseConfig);
 ```
+
 <br />
 <br />
 
@@ -44,8 +45,8 @@ You can change this setting as "session" or "none"
 await authService.createUserWithEmailAndPassword(email, password); // :Promise
 await authService.signInWithEmailAndPassword(email, password); // :Promise
 ```
-<br />
 
+<br />
 
 ### Social account
 
@@ -58,27 +59,29 @@ if (name === "google") {
 
 await authService.signInWithPopup(provider);
 ```
+
 <br />
 <br />
 
 ## Listener for initializing user state
 
-```onAuthStateChanged()``` is triggered whenever user state is changed.
+`onAuthStateChanged()` is triggered whenever user state is changed.
 
 e.g. On log in, On log out, On Firebase initialize.
 
 ```js
 useEffect(() => {
-    authService.onAuthStateChanged((user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-      setInit(true);
-    });
-  }, []);
+  authService.onAuthStateChanged((user) => {
+    if (user) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+    setInit(true);
+  });
+}, []);
 ```
+
 <br />
 <br />
 
@@ -95,29 +98,45 @@ Collection - - Document - content
            L - Document - content
 ```
 
- ```js
- await dbService.collection("kweets").add({
-      text: kweet,
-      createdAt: Date.now(),
-    });
- ```
+```js
+await dbService.collection("kweets").add({
+  text: kweet,
+  createdAt: Date.now(),
+});
+```
+
+<br />
 
 ![collection](./collection.jpg)
+<br />
+<br />
+
+## Change document to Firestore
+
+```js
+await dbService.doc(`kweets/${kweetObj.id}`).delete();
+await dbService.doc(`kweets/${kweetObj.id}`).update({
+  text: newKweet,
+});
+```
+
+<br />
+<br />
 
 ## Listener for any changing of firestore | Snapshot
 
-```dbService.collection(COLLECTION).onSnapshot(CALLBACK)``` is listener for collection whenever there is any change.
+`dbService.collection(COLLECTION).onSnapshot(CALLBACK)` is listener for collection whenever there is any change.
 
 Any changes include addition, delete, read and modification. So On init and realtime with tweet addition or delete or modification, this will be triggered.
 
 ```js
 useEffect(() => {
-    dbService.collection("kweets").onSnapshot((snapshot) => {
-      const kweetArray = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setKweets(kweetArray);
-    });
-  }, []);
+  dbService.collection("kweets").onSnapshot((snapshot) => {
+    const kweetArray = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setKweets(kweetArray);
+  });
+}, []);
 ```
