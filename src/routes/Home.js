@@ -5,6 +5,7 @@ import Kweet from "components/Kweet";
 const Home = ({ userObj }) => {
   const [kweet, setKweet] = useState("");
   const [kweets, setKweets] = useState([]);
+  const [attachment, setAttachment] = useState();
   useEffect(() => {
     dbService.collection("kweets").onSnapshot((snapshot) => {
       const kweetArray = snapshot.docs.map((doc) => ({
@@ -39,10 +40,15 @@ const Home = ({ userObj }) => {
     const theFile = files[0];
     const reader = new FileReader();
     reader.onloadend = (finishedEvent) => {
-      console.log(finishedEvent);
+      const {
+        currentTarget: { result },
+      } = finishedEvent;
+      setAttachment(result);
     };
     reader.readAsDataURL(theFile);
   };
+
+  const clearAttachmentClick = () => setAttachment(null);
 
   return (
     <div>
@@ -56,6 +62,12 @@ const Home = ({ userObj }) => {
         />
         <input type="file" accept="image/*" onChange={onFileChange} />
         <input type="submit" value="Kweet" />
+        {attachment && (
+          <div>
+            <img src={attachment} width="50px" height="50px" />
+            <button onClick={clearAttachmentClick}>Clear</button>
+          </div>
+        )}
       </form>
       <div>
         {kweets.map((kweet) => (
