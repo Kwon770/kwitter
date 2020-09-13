@@ -198,3 +198,11 @@ const kweets = await dbService
   .orderBy("createdAt")
   .get();
 ```
+
+## Update profile
+
+`USER.updateProfile({DISPLAYNAME, PROFILEPICUTRE})`
+
+```js
+await userObj.updateProfile({ displayName: newDisplayName });
+```
