@@ -11,12 +11,13 @@ function App() {
       if (user) {
         setIsLoggedIn(true);
         setUserObj({
-          displayName: user.displayName,
+          displayName: user.displayName === null ? "" : user.displayName,
           uid: user.uid,
           updateProfile: (args) => user.updateProfile(args),
         });
       } else {
         setIsLoggedIn(false);
+        setUserObj(null);
       }
       setInit(true);
     });
