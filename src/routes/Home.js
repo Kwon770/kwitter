@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { dbService } from "fbase";
+import { v4 as uuidv4 } from "uuid";
+import { dbService, storageService } from "fbase";
 import Kweet from "components/Kweet";
 
 const Home = ({ userObj }) => {
@@ -18,12 +19,15 @@ const Home = ({ userObj }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.collection("kweets").add({
-      text: kweet,
-      createdAt: Date.now(),
-      creatorId: userObj.uid,
-    });
-    setKweet("");
+    const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+    const response = await fileRef.putString(attachment, "data_url");
+    console.log(response);
+    // await dbService.collection("kweets").add({
+    //   text: kweet,
+    //   createdAt: Date.now(),
+    //   creatorId: userObj.uid,
+    // });
+    // setKweet("");
   };
 
   const onChange = (event) => {

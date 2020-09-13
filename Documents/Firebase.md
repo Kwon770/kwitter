@@ -2,6 +2,34 @@
 
 **You must use `await` with all method what return Promise**
 
+## Firebase file from project
+
+```js
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/storage";
+
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+};
+
+firebase.initializeApp(firebaseConfig);
+
+export const firebaseInstance = firebase;
+
+export const authService = firebase.auth();
+export const dbService = firebase.firestore();
+export const storageService = firebase.storage();
+```
+
 ## Create project and Generate app
 
 It will give you _Firebase SDK_
@@ -139,4 +167,15 @@ useEffect(() => {
     setKweets(kweetArray);
   });
 }, []);
+```
+
+## Upload file to storage | Bucket
+
+`storageService.ref()` : Return reference of storage
+`REF.child(PATH)` : Return reference of PATH from REF
+`REF.putString(STRING, FORMAT)` : Put(Update by HTTP) STRING to REF
+
+```js
+const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+const response = await fileRef.putString(attachment, "data_url");
 ```
