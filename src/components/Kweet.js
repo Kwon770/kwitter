@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 
 const Kweet = ({ kweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -9,6 +9,7 @@ const Kweet = ({ kweetObj, isOwner }) => {
     const ok = window.confirm("Are you sure you want to delete this kweet");
     if (ok) {
       await dbService.doc(`kweets/${kweetObj.id}`).delete();
+      await storageService.refFromURL(kweetObj.attachmentUrl).delete();
     }
   };
 

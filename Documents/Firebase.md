@@ -179,3 +179,9 @@ useEffect(() => {
 const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
 const response = await fileRef.putString(attachment, "data_url");
 ```
+
+## Delete file from storage
+
+```js
+storageService.refFromURL(kweetObj.attachmentUrl).delete();
+```
