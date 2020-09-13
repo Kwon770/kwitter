@@ -185,3 +185,16 @@ const response = await fileRef.putString(attachment, "data_url");
 ```js
 storageService.refFromURL(kweetObj.attachmentUrl).delete();
 ```
+
+## Filtering document from collection
+
+`where(FILEPATH, OPERATOR, VALUE)` : Filtering
+`orderBy(FILEPATH)` : Sorting
+
+```js
+const kweets = await dbService
+  .collection("kweets")
+  .where("creatorId", "==", userObj.uid)
+  .orderBy("createdAt")
+  .get();
+```
