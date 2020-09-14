@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AppRouter from "components/Router";
 import { authService } from "../fbase";
+import GlobalStyles from "components/GlobalStyles";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -44,6 +45,7 @@ function App() {
         "Initializing..."
       )}
       {/* <footer>&copy; {new Date().getFullYear()} Kwitter</footer> */}
+      <GlobalStyles />
     </>
   );
 }
