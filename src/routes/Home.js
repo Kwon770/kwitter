@@ -49,7 +49,7 @@ const Main = styled.div`
   height: 100%;
   width: 600px;
   min-width: 600px;
-  background-color: blue;
+  background-color: white;
 `;
 
 const RightBlank = styled.div`
