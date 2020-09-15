@@ -22,6 +22,7 @@ const Home = ({ userObj }) => {
     <Holder>
       <Navigator />
       <Main>
+        <HomeBar>Home</HomeBar>
         <KweetFactory userObj={userObj} />
         <div>
           {kweets.map((kweet) => (
@@ -57,4 +58,13 @@ const RightBlank = styled.div`
   width: 100%;
   border-left: 1px solid lightgray;
   background-color: white;
+`;
+
+const HomeBar = styled.div`
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  padding: 15px;
+  font-size: 25px;
+  font-weight: 600;
 `;
