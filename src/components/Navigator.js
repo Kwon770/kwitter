@@ -29,13 +29,16 @@ const Navigator = () => {
           onMouseEnter={({ target }) => (target.style.color = "#4aa0eb")}
           onMouseLeave={({ target }) => (target.style.color = "#222427")}
         />
-        <PostButton style={{ margin: 15 }}>
-          <BiPen
-            color="#ffffff"
-            size="35px"
-            onMouseEnter={({ target }) => (target.style.color = "#4aa0eb")}
-            onMouseLeave={({ target }) => (target.style.color = "#222427")}
-          />
+        <PostButton
+          style={{ margin: 15 }}
+          onMouseEnter={({ target }) =>
+            (target.style.backgroundColor = "#2980b9")
+          }
+          onMouseLeave={({ target }) =>
+            (target.style.backgroundColor = "#4aa0eb")
+          }
+        >
+          <BiPen color="#ffffff" size="35px" />
         </PostButton>
       </Icons>
     </Bar>

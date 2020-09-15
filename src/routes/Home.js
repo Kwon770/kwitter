@@ -55,6 +55,6 @@ const Main = styled.div`
 const RightBlank = styled.div`
   height: 100%;
   width: 100%;
-  /* max-width: 30%; */
-  background-color: black;
+  border-left: 1px solid lightgray;
+  background-color: white;
 `;
