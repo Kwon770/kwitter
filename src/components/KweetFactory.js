@@ -20,10 +20,15 @@ const KweetFactory = ({ userObj }) => {
       attachmentUrl = await response.ref.getDownloadURL();
     }
 
+    const date = new Date();
     const kweetObj = {
       text: kweet,
-      createdAt: Date.now(),
+      createdMonth: date.getMonth() + 1,
+      createdDay: date.getDate(),
+      createdHours: date.getHours(),
+      createdMinutes: date.getMinutes(),
       creatorId: userObj.uid,
+      creatorName: userObj.displayName,
       attachmentUrl,
     };
     await dbService.collection("kweets").add(kweetObj);
@@ -60,6 +65,7 @@ const KweetFactory = ({ userObj }) => {
       <Holder>
         <Profile src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2018/08/shutterstock-illustrator-flat-character-design-steve-guttenberg.jpg" />
         <Content>
+          {/* <KweetHolder> */}
           <KweetInput
             value={kweet}
             onChange={onChange}
@@ -78,12 +84,12 @@ const KweetFactory = ({ userObj }) => {
           <Menu>
             <>
               <label
-                for="picture"
+                htmlFor="picture"
                 style={{ position: "relative" }}
                 onMouseEnter={() => setPictureOver(true)}
                 onMouseLeave={() => setPictureOver(false)}
               >
-                <AiOutlinePicture for="picture" size={30} color="#4aa0eb" />
+                <AiOutlinePicture size={30} color="#4aa0eb" />
                 {pictureOver && <PictureOverAnimation />}
               </label>
               <input
@@ -104,6 +110,7 @@ const KweetFactory = ({ userObj }) => {
             </>
             <KweetButton type="submit" value="Kweet" />
           </Menu>
+          {/* </KweetHolder> */}
         </Content>
       </Holder>
     </form>
@@ -133,6 +140,7 @@ const Content = styled.div`
 const KweetInput = styled.input`
   border: none;
   width: 90%;
+  font-size: 20px;
   &:focus {
     outline: none !important;
   }
