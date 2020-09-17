@@ -61,64 +61,62 @@ const KweetFactory = ({ userObj }) => {
   const clearAttachmentClick = () => setAttachment(null);
 
   return (
-    <form onSubmit={onSubmit}>
-      <Holder>
-        <Profile src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2018/08/shutterstock-illustrator-flat-character-design-steve-guttenberg.jpg" />
-        <Content>
-          {/* <KweetHolder> */}
-          <KweetInput
-            value={kweet}
-            onChange={onChange}
-            type="text"
-            placeholder="What's on your mind?"
-            maxLength={120}
-          />
-          {attachment && (
-            <AttachmentPreivew>
-              <PreviewImage src={attachment} />
-              <ClearButton onClick={clearAttachmentClick}>
-                <AiFillDelete color="#ffffff" size={20} />
-              </ClearButton>
-            </AttachmentPreivew>
-          )}
-          <Menu>
-            <>
-              <label
-                htmlFor="picture"
-                style={{ position: "relative" }}
-                onMouseEnter={() => setPictureOver(true)}
-                onMouseLeave={() => setPictureOver(false)}
-              >
-                <AiOutlinePicture size={30} color="#4aa0eb" />
-                {pictureOver && <PictureOverAnimation />}
-              </label>
-              <input
-                id="picture"
-                type="file"
-                accept="image/*"
-                onChange={onFileChange}
-                style={{
-                  position: "absolute",
-                  width: 1,
-                  height: 1,
-                  padding: 0,
-                  margin: -1,
-                  overflow: "hidden",
-                  border: 0,
-                }}
-              />
-            </>
-            <KweetButton type="submit" value="Kweet" />
-          </Menu>
-          {/* </KweetHolder> */}
-        </Content>
-      </Holder>
-    </form>
+    <Holder onSubmit={onSubmit}>
+      <Profile src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2018/08/shutterstock-illustrator-flat-character-design-steve-guttenberg.jpg" />
+      <Content>
+        {/* <KweetHolder> */}
+        <KweetInput
+          value={kweet}
+          onChange={onChange}
+          type="text"
+          placeholder="What's on your mind?"
+          maxLength={120}
+        />
+        {attachment && (
+          <AttachmentPreivew>
+            <PreviewImage src={attachment} />
+            <ClearButton onClick={clearAttachmentClick}>
+              <AiFillDelete color="#ffffff" size={20} />
+            </ClearButton>
+          </AttachmentPreivew>
+        )}
+        <Menu>
+          <>
+            <label
+              htmlFor="picture"
+              style={{ position: "relative" }}
+              onMouseEnter={() => setPictureOver(true)}
+              onMouseLeave={() => setPictureOver(false)}
+            >
+              <AiOutlinePicture size={30} color="#4aa0eb" />
+              {pictureOver && <PictureOverAnimation />}
+            </label>
+            <input
+              id="picture"
+              type="file"
+              accept="image/*"
+              onChange={onFileChange}
+              style={{
+                position: "absolute",
+                width: 1,
+                height: 1,
+                padding: 0,
+                margin: -1,
+                overflow: "hidden",
+                border: 0,
+              }}
+            />
+          </>
+          <KweetButton type="submit" value="Kweet" />
+        </Menu>
+        {/* </KweetHolder> */}
+      </Content>
+    </Holder>
   );
 };
 export default KweetFactory;
 
-const Holder = styled.div`
+const Holder = styled.form`
   width: 100%;
   border-bottom: 7px solid lightgray;
   display: flex;

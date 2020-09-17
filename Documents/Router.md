@@ -4,7 +4,7 @@
 
 From this router, if you log out on '/profile', you will stay '/profile' logged out.
 
-__Because LogOut router dont have '/profile' router, you will see empty session.__
+**Because LogOut router dont have '/profile' router, you will see empty session.**
 
 ```js
 const AppRouter = ({ isLoggedIn }) => (
@@ -21,9 +21,9 @@ const AppRouter = ({ isLoggedIn }) => (
           </Route>
         </>
       ) : (
-          <Route exact path="/">
-            <Auth />
-          </Route>
+        <Route exact path="/">
+          <Auth />
+        </Route>
       )}
     </Switch>
   </Router>
@@ -32,11 +32,11 @@ const AppRouter = ({ isLoggedIn }) => (
 
 So you must handle this. There is two way.
 
-1. Handle unhandled url with ```<Redirect>```
+1. Handle unhandled url with `<Redirect>`
 
 If there is no route what matches url, you will go to route what is bottom of Router.
 
-So you will face ```<Redirect/>``` what is bottom of Router.
+So you will face `<Redirect/>` what is bottom of Router.
 
 ```js
 const AppRouter = ({ isLoggedIn }) => (
@@ -66,14 +66,14 @@ const AppRouter = ({ isLoggedIn }) => (
 );
 ```
 
-2. Redirect browser with ```useHistory()```
+2. Redirect browser with `useHistory()`
 
 ```js
 import { useHistory } from "react-router-dom";
 
-  const history = useHistory();
-  const onLogOutClick = () => {
-    authService.signOut();
-    history.push("/");
-  };
+const history = useHistory();
+const onLogOutClick = () => {
+  authService.signOut();
+  history.push("/");
+};
 ```

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { authService, dbService } from "fbase";
+import Navigator from "components/Navigator";
 
 export default ({ userObj, refreshUser }) => {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
@@ -40,6 +41,7 @@ export default ({ userObj, refreshUser }) => {
   return (
     <>
       <form onSubmit={onSubmit}>
+        <Navigator />
         <input
           type="text"
           placeholder="Display name"

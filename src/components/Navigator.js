@@ -2,19 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import { FaTwitter } from "react-icons/fa";
 import { BiHomeAlt, BiSearch, BiUser, BiPen } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Navigator = () => {
   return (
     <Bar>
       <Icons>
         <FaTwitter color="#4aa0eb" size="40px" style={{ margin: 10 }} />
-        <BiHomeAlt
-          color="#222427"
-          size="35px"
-          style={{ margin: 15 }}
-          onMouseEnter={({ target }) => (target.style.color = "#4aa0eb")}
-          onMouseLeave={({ target }) => (target.style.color = "#222427")}
-        />
+        <Link to="/">
+          <BiHomeAlt
+            color="#222427"
+            size="35px"
+            style={{ margin: 15 }}
+            onMouseEnter={({ target }) => (target.style.color = "#4aa0eb")}
+            onMouseLeave={({ target }) => (target.style.color = "#222427")}
+          />
+        </Link>
         <BiSearch
           color="#222427"
           size="35px"
@@ -22,13 +25,15 @@ const Navigator = () => {
           onMouseEnter={({ target }) => (target.style.color = "#4aa0eb")}
           onMouseLeave={({ target }) => (target.style.color = "#222427")}
         />
-        <BiUser
-          color="#222427"
-          size="35px"
-          style={{ margin: 15 }}
-          onMouseEnter={({ target }) => (target.style.color = "#4aa0eb")}
-          onMouseLeave={({ target }) => (target.style.color = "#222427")}
-        />
+        <Link to="/profile">
+          <BiUser
+            color="#222427"
+            size="35px"
+            style={{ margin: 15 }}
+            onMouseEnter={({ target }) => (target.style.color = "#4aa0eb")}
+            onMouseLeave={({ target }) => (target.style.color = "#222427")}
+          />
+        </Link>
         <PostButton
           style={{ margin: 15 }}
           onMouseEnter={({ target }) =>
