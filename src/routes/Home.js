@@ -22,7 +22,7 @@ const Home = ({ userObj }) => {
     <Holder>
       <Navigator />
       <Main>
-        <HomeBar>Home</HomeBar>
+        <Bar>Home</Bar>
         <KweetFactory userObj={userObj} />
         <div>
           {kweets.map((kweet) => (
@@ -60,7 +60,7 @@ const RightBlank = styled.div`
   background-color: white;
 `;
 
-const HomeBar = styled.div`
+const Bar = styled.div`
   width: 100%;
   background-color: white;
   border-bottom: 1px solid lightgray;

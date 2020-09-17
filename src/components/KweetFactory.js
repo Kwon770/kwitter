@@ -61,7 +61,7 @@ const KweetFactory = ({ userObj }) => {
   const clearAttachmentClick = () => setAttachment(null);
 
   return (
-    <Holder onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <Profile src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2018/08/shutterstock-illustrator-flat-character-design-steve-guttenberg.jpg" />
       <Content>
         {/* <KweetHolder> */}
@@ -111,12 +111,12 @@ const KweetFactory = ({ userObj }) => {
         </Menu>
         {/* </KweetHolder> */}
       </Content>
-    </Holder>
+    </Form>
   );
 };
 export default KweetFactory;
 
-const Holder = styled.form`
+const Form = styled.form`
   width: 100%;
   border-bottom: 7px solid lightgray;
   display: flex;
