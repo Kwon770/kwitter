@@ -27,7 +27,7 @@ function App() {
   const refreshUser = () => {
     const user = authService.currentUser;
     setUserObj({
-      displayName: user.displayName,
+      displayName: user.displayName === null ? "" : user.displayName,
       uid: user.uid,
       updateProfile: (args) => user.updateProfile(args),
     });
