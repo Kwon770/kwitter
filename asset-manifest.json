@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/kwitter/static/js/main.1318b2b8.chunk.js",
-    "main.js.map": "/kwitter/static/js/main.1318b2b8.chunk.js.map",
+    "main.js": "/kwitter/static/js/main.cbc94c2c.chunk.js",
+    "main.js.map": "/kwitter/static/js/main.cbc94c2c.chunk.js.map",
     "runtime-main.js": "/kwitter/static/js/runtime-main.df10ca4b.js",
     "runtime-main.js.map": "/kwitter/static/js/runtime-main.df10ca4b.js.map",
-    "static/js/2.f3eb2d6d.chunk.js": "/kwitter/static/js/2.f3eb2d6d.chunk.js",
-    "static/js/2.f3eb2d6d.chunk.js.map": "/kwitter/static/js/2.f3eb2d6d.chunk.js.map",
+    "static/js/2.c934d288.chunk.js": "/kwitter/static/js/2.c934d288.chunk.js",
+    "static/js/2.c934d288.chunk.js.map": "/kwitter/static/js/2.c934d288.chunk.js.map",
     "index.html": "/kwitter/index.html",
-    "precache-manifest.68fd4ff9c5c2645a099e16e297e4822d.js": "/kwitter/precache-manifest.68fd4ff9c5c2645a099e16e297e4822d.js",
+    "precache-manifest.cc4fd538e6dc4af79754b88883016b36.js": "/kwitter/precache-manifest.cc4fd538e6dc4af79754b88883016b36.js",
     "service-worker.js": "/kwitter/service-worker.js",
-    "static/js/2.f3eb2d6d.chunk.js.LICENSE.txt": "/kwitter/static/js/2.f3eb2d6d.chunk.js.LICENSE.txt"
+    "static/js/2.c934d288.chunk.js.LICENSE.txt": "/kwitter/static/js/2.c934d288.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.df10ca4b.js",
-    "static/js/2.f3eb2d6d.chunk.js",
-    "static/js/main.1318b2b8.chunk.js"
+    "static/js/2.c934d288.chunk.js",
+    "static/js/main.cbc94c2c.chunk.js"
   ]
 }
