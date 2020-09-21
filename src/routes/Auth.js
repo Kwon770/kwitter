@@ -1,4 +1,6 @@
 import React from "react";
+import styled from "styled-components";
+import { FaTwitter } from "react-icons/fa";
 import { authService, firebaseInstance } from "fbase";
 import AuthForm from "components/AuthForm";
 
@@ -20,7 +22,11 @@ const Auth = () => {
   };
 
   return (
-    <div>
+    <Holder>
+      <FaTwitter color="#4aa0eb" size="40px" style={{ marginBottom: 40 }} />
+      <span style={{ fontSize: 20, fontWeight: 600, marginBottom: 25 }}>
+        Login Kwitter
+      </span>
       <AuthForm />
       <div>
         <button name="google" onClick={onSocialClick}>
@@ -30,7 +36,15 @@ const Auth = () => {
           Continue with Github
         </button>
       </div>
-    </div>
+    </Holder>
   );
 };
 export default Auth;
+
+const Holder = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+`;

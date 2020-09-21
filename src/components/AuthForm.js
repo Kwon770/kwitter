@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { authService } from "fbase";
 import React, { useState } from "react";
 
@@ -40,10 +41,12 @@ const AuthForm = () => {
   };
 
   const toggleAccount = () => setNewAccount((prev) => !prev);
+
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
+      <Holder>
+        <ErrorMessage>{error}</ErrorMessage>
+        <Input
           name="email"
           type="text"
           placeholder="Email"
@@ -51,7 +54,7 @@ const AuthForm = () => {
           value={email}
           onChange={onChange}
         />
-        <input
+        <Input
           name="password"
           type="password"
           placeholder="Password"
@@ -59,13 +62,67 @@ const AuthForm = () => {
           value={password}
           onChange={onChange}
         />
-        <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
-      </form>
-      {error}
-      <span onClick={toggleAccount}>
-        {newAccount ? "Sign in" : "Create Account"}
-      </span>
+        <SubmitButton onClick={onSubmit}>
+          {newAccount ? "Create Account" : "Log In"}
+        </SubmitButton>
+        <ChangeAuth onClick={toggleAccount}>
+          {newAccount ? "Sign in" : "Create Account"}
+        </ChangeAuth>
+      </Holder>
     </>
   );
 };
 export default AuthForm;
+
+const Holder = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Input = styled.input`
+  margin-bottom: 20px;
+  width: 540px;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid #576b7a;
+  font-size: 17px;
+  font-weight: 400;
+  color: black;
+  background-color: #f3f7f9;
+  &::placeholder {
+    color: #576b7a;
+  }
+
+  &:focus {
+    outline: none !important;
+  }
+`;
+
+const SubmitButton = styled.div`
+  margin-bottom: 33px;
+  background-color: #0091ee;
+  width: 550px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ChangeAuth = styled.div`
+  color: #0091ee;
+  font-size: 15px;
+  cursor: pointer;
+`;
+
+const ErrorMessage = styled.div`
+  color: #ef2055;
+  font-size: 15px;
+  width: 540px;
+  height: 20px;
+`;
