@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { dbService, storageService } from "fbase";
 import styled from "styled-components";
 
 const Kweet = ({ kweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newKweet, setNewKweet] = useState(kweetObj.text);
-  const minutes = 1000 * 60;
-  const hours = minutes * 60;
-  const days = hours * 24;
 
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this kweet");

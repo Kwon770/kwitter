@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { BiArrowBack, BiPencil } from "react-icons/bi";
 import Navigator from "components/Navigator";
 import Kweet from "components/Kweet";
+import { Link } from "react-router-dom";
 
 export default ({ userObj, refreshUser }) => {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
@@ -56,7 +57,9 @@ export default ({ userObj, refreshUser }) => {
           />
           <input type="submit" value="Update" /> */}
         <Header>
-          <BiArrowBack color="#4aa0eb" size={21} />
+          <Link to="/">
+            <BiArrowBack color="#4aa0eb" size={21} />
+          </Link>
           <Holder>
             <Name>{userObj.displayName}</Name>
             <KweetCount>{`${myKweets.length} Kweet`}</KweetCount>
