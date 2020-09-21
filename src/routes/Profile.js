@@ -49,13 +49,6 @@ export default ({ userObj, refreshUser }) => {
     <Form>
       <Navigator />
       <Main>
-        {/* <input
-            type="text"
-            placeholder="Display name"
-            value={newDisplayName}
-            onChange={onChange}
-          />
-          <input type="submit" value="Update" /> */}
         <Header>
           <Link to="/">
             <BiArrowBack color="#4aa0eb" size={21} />
@@ -64,6 +57,7 @@ export default ({ userObj, refreshUser }) => {
             <Name>{userObj.displayName}</Name>
             <KweetCount>{`${myKweets.length} Kweet`}</KweetCount>
           </Holder>
+          <button onClick={onLogOutClick}>Log out</button>
         </Header>
         <MyProfile>
           <Wallpaper />
@@ -159,7 +153,6 @@ export default ({ userObj, refreshUser }) => {
         <Divider />
       </Main>
       <RightBlank />
-      <button onClick={onLogOutClick}>Log out</button>
     </Form>
   );
 };
